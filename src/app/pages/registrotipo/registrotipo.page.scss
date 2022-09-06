@@ -1,0 +1,23 @@
+.tarjeta{
+    text-align: center;
+    height: 30%;
+    background-color: transparentize($color: #000000, $amount: 0.75);
+}
+
+.tarjeta:hover {
+    background-color: transparentize($color: #072b50, $amount: 0.75);
+    transition: 0.7s;
+    height: 38%;
+}
+
+
+
+.TUsuario{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.card_img{
+    width: 50%;
+    height: 80%;
+}
