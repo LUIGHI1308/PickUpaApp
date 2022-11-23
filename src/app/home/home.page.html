@@ -1,6 +1,6 @@
 <ion-content mode="ios">
   <ion-header>
-      <img src="assets\2560px-Logo_DuocUC.svg.png" style="padding-top:10%">
+      <img id = "Logo_duoc" src="assets\2560px-Logo_DuocUC.svg.png" style="padding-top:10%">
   </ion-header>
 
 
@@ -15,7 +15,7 @@
       <ion-item class="Entrada">
         <ion-label>Email: </ion-label>
         <ion-input type="email" placeholder="Email" class="roundedInput"
-                  name="email" value="" [(ngModel)]= "usuarioComp"
+                  name="email" value="" [(ngModel)]= "usuario.email"
                   pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"
                   required>
         </ion-input>

@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { MenuController } from '@ionic/angular';
-
+import { Usuario } from 'src/app/interfaces/interface';
+import { BackendService } from 'src/app/services/backend.service';
 
 
 @Component({
@@ -9,10 +11,19 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['./registrocli.page.scss'],
 })
 export class RegistrocliPage implements OnInit {
-  user: any;
+  
 
-  constructor(private menuController: MenuController){
-    this.user = {};
+
+
+  constructor(private menuController: MenuController,private servicio:BackendService){
+
+  }
+
+  user = {
+    name:'',
+    email: '',
+    password:'',
+    rol:'Pasajero'
   }
 
   ngOnInit() {}
@@ -20,10 +31,14 @@ export class RegistrocliPage implements OnInit {
     mostrarMenu(){
       this.menuController.open('first');
     }
+
+    
+
   
     onSubmit(){
       console.log('submit');
-      console.log(this.user);
+      console.log(this.user)
+      this.servicio.postUser(this.user)
     }
   
 

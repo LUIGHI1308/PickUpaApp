@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-
+import { Usuario } from '../interfaces/interface';
+import { BackendService } from '../services/backend.service';
 
 @Component({
   selector: 'app-inputs',
@@ -8,30 +8,36 @@ import { MenuController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+usuarios : Usuario
 
-  constructor(private menuController: MenuController) { }
+  constructor(private servicio:BackendService) { }
 
   ngOnInit() {
-  }
-
-  mostrarMenu(){
-    this.menuController.open('first');
   }
 
 
   usuario = {
     nombre:'',
     email: '',
-    password:''
+    password:'',
+    rol:''
   }
 
   public getemail(){
     return this.usuario.email;
   } 
 
+  public valCreado(){
+      this.servicio.getforEmail(this.getemail())
+      .subscribe(data =>{
+        this.usuarios = data;
+        console.log(data)
+    });
+  }
+
   onSubmit(){
     console.log('submit');
-    console.log(this.usuario);
+    this.valCreado()
   }
 }
 
